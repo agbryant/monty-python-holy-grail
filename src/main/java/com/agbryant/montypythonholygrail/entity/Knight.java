@@ -12,6 +12,7 @@ import lombok.ToString;
 public class Knight extends Person {
 
     private String epithet;
+    private String quest;
 
     @Builder
     public Knight(String name, String epithet){

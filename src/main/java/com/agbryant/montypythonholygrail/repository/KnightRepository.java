@@ -34,6 +34,15 @@ public class KnightRepository {
         Knight bedevere = new Knight("Bedevere", "Wise");
         knights.add(bedevere);
 
+        Knight galahad = Knight.builder().name("Galahad").epithet("Pure").build();
+        knights.add(galahad);
+
+        Knight whoSaysNi = new Knight("Knight", "Who Says Ni");
+        knights.add(whoSaysNi);
+
+        Knight blackKnight = Knight.builder().name("Black Knight").build();
+        knights.add(blackKnight);
+
         return knights.stream().sorted(Comparator.comparing(Knight::getName)).collect(Collectors.toList());
     }
 

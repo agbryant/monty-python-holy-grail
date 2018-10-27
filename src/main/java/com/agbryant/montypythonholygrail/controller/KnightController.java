@@ -2,10 +2,12 @@ package com.agbryant.montypythonholygrail.controller;
 
 
 import com.agbryant.montypythonholygrail.entity.Knight;
+import com.agbryant.montypythonholygrail.exception.KnightNotFoundException;
 import com.agbryant.montypythonholygrail.repository.KnightRepository;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,5 +46,12 @@ public class KnightController {
     public List<Knight> getAll(){
 
         return repository.getAll();
+    }
+
+
+    @RequestMapping("/knight/{name}")
+    public Knight getByName(@PathVariable("name") String name) throws KnightNotFoundException {
+
+        return repository.getByName(name);
     }
 }

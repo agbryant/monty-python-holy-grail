@@ -37,9 +37,13 @@ public class KnightControllerTest {
         subject.getAll();
     }
 
+
     @Test
     public void test_ListKnights(@Mocked Model model){
 
         subject.listKnights(model);
     }
+
+
+
 }
