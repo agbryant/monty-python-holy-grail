@@ -1,7 +1,6 @@
 package com.agbryant.montypythonholygrail.repository;
 
 import com.agbryant.montypythonholygrail.entity.Knight;
-import com.agbryant.montypythonholygrail.entity.Person;
 import com.agbryant.montypythonholygrail.exception.KnightNotFoundException;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +12,6 @@ import java.util.stream.Collectors;
 
 @Repository
 public class KnightRepository {
-
-
 
     public List<Knight> getAll(){
 
@@ -42,6 +39,9 @@ public class KnightRepository {
 
         Knight blackKnight = Knight.builder().name("Black Knight").build();
         knights.add(blackKnight);
+
+        Knight notAppearingInThisFilm = Knight.builder().name("").epithet("Not-Appearing-in-this-Film").build();
+        knights.add(notAppearingInThisFilm);
 
         return knights.stream().sorted(Comparator.comparing(Knight::getName)).collect(Collectors.toList());
     }

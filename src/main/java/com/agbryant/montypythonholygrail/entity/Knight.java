@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.List;
+
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -12,7 +14,6 @@ import lombok.ToString;
 public class Knight extends Person {
 
     private String epithet;
-    private String quest;
 
     @Builder
     public Knight(String name, String epithet){

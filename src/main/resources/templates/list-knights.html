@@ -1,48 +1,29 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
 <head>
-    <title>Spring Boot Thymeleaf Hello World Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
-
-    <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
-
+    <title>List Knights</title>
+    <link rel="stylesheet" href="/css/hello.css"/>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
+<div layout:fragment="content">
     <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Spring Boot</a>
+
+        <div class="starter-template">
+            <h1>Knights</h1>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
+        <tr th:each="knight: ${knights}">
+            <td height="50" align="center">
+                <h2> Sir <span th:text="${knight.name}"></span> the <span th:text="${knight.epithet}"></span></h2>
+            </td>
+        </tr>
+
     </div>
-</nav>
-
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Knights</h1>
-    </div>
-    <tr th:each="knight: ${knights}">
-        <td height="50" align="center">
-            <h2> Sir <span th:text="${knight.name}"></span> the <span th:text="${knight.epithet}"></span></h2>
-        </td>
-    </tr>
-
 </div>
-<!-- /.container -->
-
-<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-
 </body>
+<th:block layout:fragment="scripts">
+    <script src="/js/hello.js"></script>
+</th:block>
 </html>

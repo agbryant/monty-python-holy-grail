@@ -8,5 +8,6 @@ import lombok.Data;
 public class Quest {
 
     private String description;
+    private boolean sacred;
     private boolean complete;
 }
